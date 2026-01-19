@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
-  <title>The Wedding of Cut Amrina & Martunis</title>
+  <meta name="description" content="Undangan Pernikahan Digital - Cut Amrina & Martunis | Divine Heritage Edition" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Pernikahan Cut Amrina & Martunis" />
+  <meta property="og:description" content="Peunyeum rindu lam linto baro, tanda cinta seutia sampoe an mata uroe leupah." />
+  <meta property="og:image" content="https://i.ibb.co.com/ym8TbJD7/IMG-20260119-233227.jpg" />
+
+  <title>Pernikahan Cut Amrina & Martunis</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -15,302 +21,363 @@
 
   <style>
     :root {
-      --bg-dark: #080808;
+      --charcoal: #0A0A0A;
       --gold: #D4AF37;
-      --gold-light: #F4E4BC;
       --ivory: #FFFFF0;
     }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--charcoal);
       color: var(--ivory);
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
       margin: 0;
     }
 
-    .font-cinzel { font-family: 'Cinzel Decorative', cursive; }
-    .font-vibes { font-family: 'Great Vibes', cursive; }
-    .font-cormorant { font-family: 'Cormorant Garamond', serif; }
-
-    /* Premium Bismillah Animation */
+    /* Bismillah SVG Animation */
+    .bismillah-svg {
+      width: 280px;
+      margin: 0 auto 40px;
+      display: block;
+    }
     .bismillah-path {
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-      animation: draw 8s ease forwards;
+      stroke-dasharray: 1200;
+      stroke-dashoffset: 1200;
+      animation: drawBismillah 8s ease forwards;
       fill: transparent;
       stroke: var(--gold);
-      stroke-width: 0.5;
+      stroke-width: 0.6;
+    }
+    @keyframes drawBismillah {
+      70% { fill: transparent; }
+      100% { stroke-dashoffset: 0; fill: rgba(212, 175, 55, 0.3); }
     }
 
-    @keyframes draw {
-      to { stroke-dashoffset: 0; fill: rgba(212, 175, 55, 0.8); }
+    /* Custom Cursor */
+    .custom-cursor {
+      position: fixed;
+      width: 14px; height: 14px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: transform 0.2s ease;
+    }
+    @media (max-width: 768px) { .custom-cursor { display: none; } }
+
+    #particle-canvas {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -2;
     }
 
-    /* Glassmorphism */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(212, 175, 55, 0.15);
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 24px;
     }
+
+    .font-title { font-family: 'Cinzel Decorative', serif; }
+    .font-poetic { font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
     .btn-gold {
-      background: linear-gradient(45deg, #996515, #D4AF37, #996515);
+      background: linear-gradient(45deg, #b8860b, #D4AF37, #b8860b);
       background-size: 200% auto;
+      color: var(--charcoal);
       transition: 0.5s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
+      font-weight: 700;
     }
-    .btn-gold:hover {
-      background-position: right center;
-      transform: translateY(-2px);
-    }
+    .btn-gold:hover { background-position: right center; transform: scale(1.05); }
 
-    /* Music Spin */
-    .music-control {
+    #three-container { width: 100%; height: 350px; position: relative; }
+
+    #landing {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
+      inset: 0;
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    #landing.hidden { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+
+    .music-btn {
+      position: fixed;
+      bottom: 25px; left: 25px;
       z-index: 1000;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.7);
+      width: 45px; height: 45px;
+      background: rgba(0,0,0,0.8);
       border: 1px solid var(--gold);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
     }
-    .rotating { animation: spin 4s linear infinite; }
+    .rotating { animation: spin 5s linear infinite; }
     @keyframes spin { 100% { transform: rotate(360deg); } }
 
-    /* Fade-in Scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    #landing {
-      position: fixed;
-      inset: 0;
-      z-index: 5000;
-      background: #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: 1s ease-in-out;
-    }
-    #landing.hide { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: 1s all ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2021/11/01/audio_03957297e6.mp3?filename=emotional-inspiring-epic-11603.mp3" type="audio/mpeg">
+  <audio id="wedding-audio" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-india.mp3" type="audio/mpeg">
+    <source src="https://cdn.pixabay.com/download/audio/2022/02/22/audio_d1469e346b.mp3" type="audio/mpeg">
   </audio>
 
+  <canvas id="particle-canvas"></canvas>
+  <div class="custom-cursor" id="cursor"></div>
+
+  <div class="music-btn no-print" id="music-toggle" onclick="toggleMusic()">
+    <i class="fas fa-music text-[#D4AF37]" id="music-icon"></i>
+  </div>
+
   <div id="landing">
-    <div class="reveal active text-center px-4">
-        <h3 class="text-[#D4AF37] tracking-[0.4em] text-xs mb-6 uppercase">The Wedding Of</h3>
-        <h1 class="font-cinzel text-4xl md:text-6xl text-[#D4AF37] mb-8">Cut Amrina <br>& Martunis</h1>
-        
-        <div class="glass-card p-6 rounded-2xl mb-10 max-w-sm mx-auto">
-            <p class="text-xs text-gray-400 mb-2">Yth. Tamu Kehormatan</p>
-            <h2 class="text-xl font-semibold mb-6 font-cormorant" id="guest-name">Nama Tamu</h2>
-            <button onclick="startInvitation()" class="btn-gold px-10 py-3 rounded-full font-bold uppercase tracking-tighter text-sm flex items-center gap-3 mx-auto">
-                <i class="fas fa-envelope-open"></i> Buka Undangan
-            </button>
-        </div>
-        <p class="font-vibes text-2xl text-gray-400 opacity-60">Aceh Utara, 2026</p>
+    <div class="text-center px-6">
+        <h1 class="text-3xl md:text-5xl font-title text-[#D4AF37] mb-6" id="guest-name">Untuk Tamu Kehormatan</h1>
+        <p class="text-ivory/80 text-center max-w-md mx-auto mb-10 font-poetic text-lg leading-relaxed">
+        Peunyeum rindu lam linto baro,<br>tanda cinta seutia sampoe an mata uroe leupah.
+        </p>
+        <button onclick="unlockInvitation()" class="btn-gold px-12 py-4 rounded-full text-lg tracking-widest shadow-[0_0_30px_rgba(212,175,55,0.3)]">
+            BUKA UNDANGAN
+        </button>
     </div>
   </div>
 
-  <div class="music-control no-print" id="music-btn" onclick="toggleMusic()">
-    <i id="music-icon" class="fas fa-music text-[#D4AF37]"></i>
-  </div>
+  <div id="main" class="opacity-0 transition-opacity duration-1000">
 
-  <main id="main-content" class="opacity-0">
-    
-    <section class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative">
-        <div id="three-bg" class="absolute inset-0 z-[-1]"></div>
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20">
+      
+      <svg class="bismillah-svg" viewBox="0 0 500 150">
+        <path class="bismillah-path" d="M110.5,85.2c-5.1,0-10.2,0.1-15.3,0.3c-1.4,0-2.3-1.2-1.7-2.4c6.3-13.3,18.5-23.7,33.2-28c1.3-0.4,2.5,0.7,2.2,2 c-2.4,12.2-0.4,23.5,6.5,27.5c1.1,0.6,0.9,2.3-0.3,2.6c-4.3,1.1-12.7,2.5-12.7,2.5s-7.1,0.9-10.2,1.2L110.5,85.2z M176.8,75.1 c-2.1-4.7-6.9-7.9-12.4-7.9c-7.6,0-13.7,6.1-13.7,13.7s6.1,13.7,13.7,13.7c5.5,0,10.3-3.2,12.4-7.9h12.5v7.9 c0,11.3,9.2,20.5,20.5,20.5s20.5-9.2,20.5-20.5V75.1H176.8z M219.6,75.1v12.5c0,4.4-3.6,8-8,8s-8-3.6-8-8v-12.5H219.6z M164.4,87.6 c-3.1,0-5.7-2.6-5.7-5.7s2.6-5.7,5.7-5.7s5.7,2.6,5.7,5.7S167.5,87.6,164.4,87.6z M272,75.1c-7.6,0-13.7,6.1-13.7,13.7 s6.1,13.7,13.7,13.7s13.7-6.1,13.7-13.7S279.6,75.1,272,75.1z M272,95.2c-3.1,0-5.7-2.6-5.7-5.7s2.6-5.7,5.7-5.7s5.7,2.6,5.7,5.7 S275.1,95.2,272,95.2z M323.2,75.1h-13.7v27.4h13.7V75.1z M348.8,75.1h-13.7v27.4h13.7V75.1z M384.8,75.1c-11.3,0-20.5,9.2-20.5,20.5 v7.9h13.7v-7.9c0-3.8,3.1-6.8,6.8-6.8s6.8,3.1,6.8,6.8v7.9h13.7v-7.9C405.3,84.3,396.1,75.1,384.8,75.1z" />
+      </svg>
+
+      <div class="fade-in">
+        <p class="text-[#D4AF37] tracking-[0.3em] mb-4 text-xs font-bold">DENGAN MEMOHON RAHMAT ALLAH SWT</p>
+        <h1 class="font-title text-5xl md:text-7xl text-[#D4AF37] mb-8">UNDANGAN PERNIKAHAN</h1>
         
-        <div class="reveal w-full max-w-lg mb-12">
-            <svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
-                <path class="bismillah-path" d="M110.5,85.2c-5.1,0-10.2,0.1-15.3,0.3c-1.4,0-2.3-1.2-1.7-2.4c6.3-13.3,18.5-23.7,33.2-28c1.3-0.4,2.5,0.7,2.2,2 c-2.4,12.2-0.4,23.5,6.5,27.5c1.1,0.6,0.9,2.3-0.3,2.6c-4.3,1.1-12.7,2.5-12.7,2.5s-7.1,0.9-10.2,1.2L110.5,85.2z M176.8,75.1 c-2.1-4.7-6.9-7.9-12.4-7.9c-7.6,0-13.7,6.1-13.7,13.7s6.1,13.7,13.7,13.7c5.5,0,10.3-3.2,12.4-7.9h12.5v7.9 c0,11.3,9.2,20.5,20.5,20.5s20.5-9.2,20.5-20.5V75.1H176.8z M219.6,75.1v12.5c0,4.4-3.6,8-8,8s-8-3.6-8-8v-12.5H219.6z M164.4,87.6 c-3.1,0-5.7-2.6-5.7-5.7s2.6-5.7,5.7-5.7s5.7,2.6,5.7,5.7S167.5,87.6,164.4,87.6z M272,75.1c-7.6,0-13.7,6.1-13.7,13.7 s6.1,13.7,13.7,13.7s13.7-6.1,13.7-13.7S279.6,75.1,272,75.1z M272,95.2c-3.1,0-5.7-2.6-5.7-5.7s2.6-5.7,5.7-5.7s5.7,2.6,5.7,5.7 S275.1,95.2,272,95.2z M323.2,75.1h-13.7v27.4h13.7V75.1z M348.8,75.1h-13.7v27.4h13.7V75.1z M384.8,75.1c-11.3,0-20.5,9.2-20.5,20.5 v7.9h13.7v-7.9c0-3.8,3.1-6.8,6.8-6.8s6.8,3.1,6.8,6.8v7.9h13.7v-7.9C405.3,84.3,396.1,75.1,384.8,75.1z" />
-            </svg>
+        <div class="font-poetic text-xl md:text-2xl max-w-2xl italic mb-10 px-4 opacity-80">
+            “Meugawe nikah nakeuh ibadah, meunyo kau peugot ngan meuseujuk syariat, Allah geutanyoe meusijok droeneuh.”
         </div>
+      </div>
 
-        <p class="reveal text-[#D4AF37] font-semibold tracking-[0.2em] text-sm mb-4 uppercase">Assalamu'alaikum Wr. Wb.</p>
-        <p class="reveal font-cormorant text-xl text-gray-300 max-w-2xl px-4 italic">
-            "Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri hari bahagia kami."
-        </p>
+      <div id="three-container"></div>
+
+      <div class="fade-in text-center mt-10">
+        <h2 class="font-title text-3xl md:text-4xl text-[#D4AF37]">Cut Amrina Ismail Yusuf</h2>
+        <p class="mt-2 text-ivory/60 italic font-poetic text-lg">Putri dari Bpk. Ismail Yusuf & Ibu</p>
+        <div class="font-poetic text-5xl my-6 text-[#D4AF37]">&</div>
+        <h2 class="font-title text-3xl md:text-4xl text-[#D4AF37]">Martunis Ben Marzuki</h2>
+        <p class="mt-2 text-ivory/60 italic font-poetic text-lg">Putra dari Bpk. Ben Marzuki & Ibu</p>
+      </div>
     </section>
 
-    <section class="py-10 px-6">
-        <div class="flex flex-col md:flex-row items-center justify-center gap-12 reveal">
-            <div class="text-center group">
-                <div class="w-48 h-48 rounded-full border-2 border-[#D4AF37] p-2 mx-auto mb-6 transform group-hover:scale-105 transition duration-700">
-                    <img src="https://dummyimage.com/400x400/111/D4AF37.jpg&text=Bride" class="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition duration-700">
-                </div>
-                <h2 class="font-cinzel text-3xl text-[#D4AF37]">Cut Amrina</h2>
-                <p class="text-gray-400 mt-2">Putri dari Bpk. Ismail Yusuf & Ibu</p>
-            </div>
+    <section class="py-24 px-6 bg-[#080808] border-y border-white/5">
+      <div class="fade-in text-center">
+        <h2 class="font-title text-3xl text-[#D4AF37] mb-2 uppercase">Jumat, 23 Januari 2026</h2>
+        <p class="text-sm text-gray-500 mb-12 tracking-widest uppercase">23 Jumadil Akhir 1447 H</p>
 
-            <div class="font-vibes text-6xl text-[#D4AF37] my-4 md:my-0">&</div>
-
-            <div class="text-center group">
-                <div class="w-48 h-48 rounded-full border-2 border-[#D4AF37] p-2 mx-auto mb-6 transform group-hover:scale-105 transition duration-700">
-                    <img src="https://dummyimage.com/400x400/111/D4AF37.jpg&text=Groom" class="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition duration-700">
-                </div>
-                <h2 class="font-cinzel text-3xl text-[#D4AF37]">Martunis</h2>
-                <p class="text-gray-400 mt-2">Putra dari Bpk. Ben Marzuki & Ibu</p>
+        <div class="glass max-w-3xl mx-auto p-10 mb-16 shadow-2xl">
+            <div class="flex justify-around text-[#D4AF37] font-title">
+            <div><span id="d" class="text-3xl md:text-5xl block">00</span><small class="text-ivory/40 text-[10px]">HARI</small></div>
+            <div><span id="h" class="text-3xl md:text-5xl block">00</span><small class="text-ivory/40 text-[10px]">JAM</small></div>
+            <div><span id="m" class="text-3xl md:text-5xl block">00</span><small class="text-ivory/40 text-[10px]">MENIT</small></div>
+            <div><span id="s" class="text-3xl md:text-5xl block">00</span><small class="text-ivory/40 text-[10px]">DETIK</small></div>
             </div>
         </div>
-    </section>
 
-    <section class="py-20 bg-[#0c0c0c]">
-        <div class="max-w-4xl mx-auto glass-card rounded-3xl p-10 text-center reveal">
-            <h2 class="font-cinzel text-2xl text-[#D4AF37] mb-8">Pelaksanaan Acara</h2>
-            <div class="grid md:grid-cols-2 gap-10">
-                <div class="border-b md:border-b-0 md:border-r border-[#D4AF37]/20 pb-6 md:pb-0">
-                    <h3 class="font-bold text-lg mb-4">AKAD NIKAH</h3>
-                    <p class="text-gray-300">Jumat, 23 Januari 2026</p>
-                    <p class="text-gray-300">Pukul 08:00 WIB - Selesai</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg mb-4">RESEPSI</h3>
-                    <p class="text-gray-300">Jumat, 23 Januari 2026</p>
-                    <p class="text-gray-300">Pukul 11:00 WIB - Selesai</p>
-                </div>
-            </div>
-            
-            <div class="mt-12">
-                <p class="text-[#D4AF37] font-semibold mb-2">LOKASI</p>
-                <p class="text-gray-400 mb-6 uppercase text-sm">Gampong Alue Papeun, Kec. Nisam Antara, Aceh Utara</p>
-                <a href="http://maps.google.com" target="_blank" class="btn-gold px-8 py-2 rounded-full text-sm font-bold inline-flex items-center gap-2">
-                    <i class="fas fa-map-location-dot"></i> Google Maps
-                </a>
-            </div>
+        <div class="space-y-4">
+            <p class="text-gray-400 uppercase tracking-widest text-xs">Lokasi Acara</p>
+            <h3 class="font-title text-3xl text-[#D4AF37]">Gampong Alue Papeun</h3>
+            <p class="text-ivory/70 text-sm max-w-sm mx-auto leading-relaxed">Kec. Nisam Antara, Kabupaten Aceh Utara, Aceh</p>
+            <a href="https://maps.google.com" target="_blank" class="btn-gold inline-block mt-10 px-10 py-3 rounded-full shadow-lg text-sm tracking-widest">
+                PETUNJUK LOKASI
+            </a>
         </div>
+      </div>
     </section>
 
-    <section class="py-20 px-6">
-        <div class="max-w-xl mx-auto glass-card p-8 rounded-2xl reveal">
-            <h2 class="font-cinzel text-2xl text-center text-[#D4AF37] mb-8">Konfirmasi Kehadiran</h2>
-            <form id="rsvp-form" class="space-y-4">
-                <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg focus:outline-none focus:border-[#D4AF37]" required>
-                <select id="kehadiran" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg focus:outline-none focus:border-[#D4AF37]" required>
-                    <option value="" class="bg-black">Pilih Kehadiran</option>
-                    <option value="Hadir" class="bg-black">InsyaAllah Hadir</option>
-                    <option value="Tidak" class="bg-black">Berhalangan Hadir</option>
-                </select>
-                <textarea id="pesan" placeholder="Ucapan Doa" rows="3" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg focus:outline-none focus:border-[#D4AF37]"></textarea>
-                <button type="submit" class="btn-gold w-full py-3 rounded-lg font-bold">Kirim Ke WhatsApp</button>
-            </form>
-        </div>
+    <section class="py-24 px-6">
+      <div class="fade-in max-w-xl mx-auto glass p-10 shadow-2xl">
+        <h2 class="font-title text-3xl text-center text-[#D4AF37] mb-10">Konfirmasi Kehadiran</h2>
+        <form id="rsvp-form" class="space-y-8">
+          <div class="relative">
+            <input type="text" id="nama" placeholder="Nama Lengkap" required class="w-full bg-transparent border-b border-[#D4AF37]/40 py-2 text-ivory focus:border-[#D4AF37] outline-none transition-all placeholder:text-gray-600">
+          </div>
+          <div class="relative">
+            <select id="kehadiran" required class="w-full bg-transparent border-b border-[#D4AF37]/40 py-2 text-ivory focus:border-[#D4AF37] outline-none transition-all">
+                <option value="" class="bg-black">Pilih Kehadiran</option>
+                <option value="Hadir" class="bg-black">InsyaAllah Hadir</option>
+                <option value="Tidak" class="bg-black">Mohon Maaf Berhalangan</option>
+            </select>
+          </div>
+          <textarea id="pesan" rows="3" placeholder="Ucapan Doa & Pesan" class="w-full bg-white/5 border border-[#D4AF37]/20 p-4 text-ivory rounded-2xl outline-none focus:border-[#D4AF37] transition-all placeholder:text-gray-600"></textarea>
+          <button type="submit" class="btn-gold w-full py-4 rounded-full shadow-2xl uppercase tracking-tighter">Kirim Konfirmasi</button>
+        </form>
+      </div>
     </section>
 
-    <footer class="py-10 text-center bg-black/50">
-        <p class="text-gray-500 text-xs">Jazakumullahu Khairan Katsiran</p>
-        <h2 class="font-cinzel text-[#D4AF37] mt-2 italic">Cut Amrina & Martunis</h2>
+    <footer class="py-16 text-center text-gray-600 text-[10px] tracking-[0.2em] uppercase border-t border-white/5">
+      © 2026 • Cut Amrina & Martunis Wedding<br>
+      <span class="mt-2 block opacity-50 italic">Divine Heritage Edition</span>
     </footer>
 
-  </main>
+  </div>
 
   <script>
-    // Personalization
-    const urlParams = new URLSearchParams(window.location.search);
-    const guest = urlParams.get('to');
-    if (guest) document.getElementById('guest-name').innerText = decodeURIComponent(guest);
-
-    const music = document.getElementById('bg-music');
-    const musicBtn = document.getElementById('music-btn');
+    // Audio Control
+    const audio = document.getElementById('wedding-audio');
+    const musicBtn = document.getElementById('music-toggle');
     const musicIcon = document.getElementById('music-icon');
     let isPlaying = false;
 
-    // Start Everything
-    function startInvitation() {
-        document.getElementById('landing').classList.add('hide');
-        document.getElementById('main-content').classList.replace('opacity-0', 'opacity-100');
-        
-        // Force Audio Play
-        music.play();
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        musicBtn.classList.remove('rotating');
+        musicIcon.className = "fas fa-pause text-[#D4AF37]";
+      } else {
+        audio.play();
+        musicBtn.classList.add('rotating');
+        musicIcon.className = "fas fa-music text-[#D4AF37]";
+      }
+      isPlaying = !isPlaying;
+    }
+
+    // Unlock Invitation
+    function unlockInvitation() {
+      document.getElementById('landing').classList.add('hidden');
+      document.getElementById('main').classList.replace('opacity-0', 'opacity-100');
+      
+      // Auto-play audio Aceh
+      audio.play().then(() => {
         isPlaying = true;
         musicBtn.classList.add('rotating');
+      }).catch(e => console.log("Audio play prevented"));
 
-        initThree();
+      initThreeJS();
+      initScrollReveal();
     }
 
-    function toggleMusic() {
-        if (isPlaying) {
-            music.pause();
-            musicBtn.classList.remove('rotating');
-            musicIcon.classList.replace('fa-music', 'fa-pause');
-        } else {
-            music.play();
-            musicBtn.classList.add('rotating');
-            musicIcon.classList.replace('fa-pause', 'fa-music');
-        }
-        isPlaying = !isPlaying;
+    // Three.js 3D Infinity Ring
+    function initThreeJS() {
+      const container = document.getElementById('three-container');
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      container.appendChild(renderer.domElement);
+
+      const geometry = new THREE.TorusKnotGeometry(4.5, 1.3, 150, 20);
+      const material = new THREE.MeshStandardMaterial({ 
+        color: 0xD4AF37, metalness: 0.9, roughness: 0.1 
+      });
+      const knot = new THREE.Mesh(geometry, material);
+      scene.add(knot);
+
+      const pLight = new THREE.PointLight(0xffffff, 1.5);
+      pLight.position.set(10, 10, 10);
+      scene.add(pLight);
+      scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+
+      camera.position.z = 12;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        knot.rotation.x += 0.005;
+        knot.rotation.y += 0.01;
+        renderer.render(scene, camera);
+      }
+      animate();
     }
 
-    // Scroll Reveal Logic
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('active');
-        });
-    }, { threshold: 0.1 });
+    // Particle Stars
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particles = [];
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.2;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+      }
+      draw() {
+        ctx.fillStyle = '#D4AF37';
+        ctx.globalAlpha = 0.2;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if(this.x > canvas.width) this.x = 0;
+        if(this.y > canvas.height) this.y = 0;
+      }
+    }
+    for(let i=0; i<60; i++) particles.push(new Particle());
+    function anim() {
+      ctx.clearRect(0,0,canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(anim);
+    }
+    anim();
 
-    // Three.js Gold Particles
-    function initThree() {
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('three-bg').appendChild(renderer.domElement);
-
-        const starGeo = new THREE.BufferGeometry();
-        const starCount = 800;
-        const posArray = new Float32Array(starCount * 3);
-
-        for(let i=0; i < starCount * 3; i++) {
-            posArray[i] = (Math.random() - 0.5) * 10;
-        }
-        starGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        const material = new THREE.PointsMaterial({ size: 0.008, color: 0xD4AF37, transparent: true, opacity: 0.6 });
-        const stars = new THREE.Points(starGeo, material);
-        scene.add(stars);
-
-        camera.position.z = 2;
-
-        function animate() {
-            requestAnimationFrame(animate);
-            stars.rotation.y += 0.001;
-            stars.rotation.x += 0.0005;
-            renderer.render(scene, camera);
-        }
-        animate();
+    // Scroll Animation
+    function initScrollReveal() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     }
 
-    // RSVP WhatsApp
-    document.getElementById('rsvp-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const nama = document.getElementById('nama').value;
-        const hadir = document.getElementById('kehadiran').value;
-        const pesan = document.getElementById('pesan').value;
-        const text = `Assalamualaikum, Saya *${nama}*.\nKonfirmasi: *${hadir}*\nPesan: ${pesan}`;
-        window.open(`https://wa.me/6285242625419?text=${encodeURIComponent(text)}`, '_blank');
+    // Countdown
+    const weddingDate = new Date("2026-01-23T08:00:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+      if (diff > 0) {
+        document.getElementById("d").innerText = String(Math.floor(diff / 86400000)).padStart(2, '0');
+        document.getElementById("h").innerText = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+        document.getElementById("m").innerText = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+        document.getElementById("s").innerText = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+      }
+    }, 1000);
+
+    // RSVP
+    document.getElementById('rsvp-form').onsubmit = (e) => {
+      e.preventDefault();
+      const msg = `Assalamualaikum, Saya *${document.getElementById('nama').value}*.\nStatus: *${document.getElementById('kehadiran').value}*\nUcapan: ${document.getElementById('pesan').value}`;
+      window.open(`https://wa.me/6285242625419?text=${encodeURIComponent(msg)}`);
+    };
+
+    // Guest Name from URL
+    const guest = new URLSearchParams(window.location.search).get('to');
+    if (guest) document.getElementById('guest-name').innerText = `Untuk ${decodeURIComponent(guest)}`;
+    
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
     });
   </script>
-
 </body>
-</html>
+  </html>
