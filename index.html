@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan: Cut Amrina & Martunis</title>
     
+    <title>Undangan Pernikahan: Cut Amrina & Martunis</title>
+    <meta name="title" content="Undangan Pernikahan: Cut Amrina & Martunis">
+    <meta name="description" content="Peumulia Jamee - Kami mengundang Anda untuk menghadiri pernikahan Cut Amrina Ismail Yusuf & Martunis Ben Marzuki pada 23 Januari 2026.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourlink.github.io/"> <meta property="og:title" content="Undangan Pernikahan: Cut Amrina & Martunis">
+    <meta property="og:description" content="Peumulia Jamee - Gampong Alue Papeun, Aceh Utara.">
+    <meta property="og:image" content="https://i.ibb.co.com/90pG6Dw/IMG-20260119-233227.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Undangan Pernikahan: Cut Amrina & Martunis">
+    <meta property="twitter:description" content="Peumulia Jamee - Gampong Alue Papeun, Aceh Utara.">
+    <meta property="twitter:image" content="https://i.ibb.co.com/90pG6Dw/IMG-20260119-233227.jpg">
+
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -26,7 +41,7 @@
             overflow-x: hidden;
         }
 
-        /* 1. Intro Bismillah Magis */
+        /* Intro Bismillah */
         #loader {
             position: fixed; inset: 0;
             background: radial-gradient(circle, #222 0%, #000 100%);
@@ -39,48 +54,41 @@
         }
         @keyframes breathe { 0%, 100% { opacity: 0.5; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1); } }
 
-        /* 2. Parallax Ornament (Pucok Reubong Style) */
-        .parallax-bg {
-            position: fixed; inset: 0;
-            background: url('https://www.transparenttextures.com/patterns/black-linen.png');
-            z-index: -2;
-        }
+        /* Background Motif */
         .ornament-overlay {
             position: fixed; inset: 0;
-            background: url('https://www.transparenttextures.com/patterns/mandala.png'); /* Simbol motif Aceh */
+            background: url('https://www.transparenttextures.com/patterns/mandala.png');
             opacity: 0.1; z-index: -1; pointer-events: none;
-            background-attachment: fixed;
         }
 
-        /* 3. Hero Section */
+        /* Sections */
         section { min-height: 100vh; padding: 80px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        .mempelai-name { font-family: 'Great Vibes', cursive; font-size: clamp(3.5rem, 12vw, 5.5rem); color: var(--gold); margin: 20px 0; }
-
-        /* 4. Sastra Aceh Box */
+        .mempelai-name { font-family: 'Great Vibes', cursive; font-size: clamp(3.2rem, 10vw, 5rem); color: var(--gold); margin: 20px 0; }
+        
         .sastra-box {
-            border: 1px solid var(--gold); background: rgba(0,0,0,0.4);
+            border-left: 3px solid var(--gold); border-right: 3px solid var(--gold);
+            background: rgba(212, 175, 55, 0.05);
             padding: 30px; border-radius: 20px; max-width: 600px;
-            margin: 20px auto; position: relative; font-style: italic; line-height: 1.8;
+            margin: 20px auto; font-style: italic; line-height: 1.8;
         }
 
-        /* 5. Interactive Cards */
+        .hero-img {
+            width: 250px; height: 250px; border-radius: 50%;
+            border: 5px solid var(--gold); object-fit: cover;
+            margin-bottom: 20px; box-shadow: 0 0 20px var(--soft-gold);
+        }
+
         .card {
             background: rgba(255,255,255,0.05); border: 1px solid var(--soft-gold);
             backdrop-filter: blur(10px); padding: 30px; border-radius: 15px;
             width: 100%; max-width: 450px; margin: 15px;
         }
 
-        /* 6. Gallery Grid */
-        .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; max-width: 600px; margin-top: 20px; }
-        .gallery img { width: 100%; border-radius: 10px; filter: grayscale(40%); transition: 0.5s; cursor: pointer; }
-        .gallery img:hover { filter: grayscale(0%); transform: scale(1.05); }
-
-        /* 7. Floating Music Button */
         #music-btn {
             position: fixed; bottom: 20px; right: 20px;
             background: var(--gold); color: black; border-radius: 50%;
             width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; z-index: 1000; box-shadow: 0 0 15px var(--gold);
+            cursor: pointer; z-index: 1000;
         }
 
         .btn-gold {
@@ -88,29 +96,28 @@
             text-decoration: none; border-radius: 50px; font-weight: bold;
             display: inline-block; margin-top: 20px; transition: 0.3s;
         }
-        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 5px 15px var(--gold); }
     </style>
 </head>
 <body>
 
     <div id="loader">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Bismillah.svg/1200px-Bismillah.svg.png" class="bismillah-svg" alt="Bismillah">
-        <h2 style="font-family: 'Cinzel Decorative'; margin: 20px 0;">Peumulia Jamee</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Bismillah.svg/1200px-Bismillah.svg.png" class="bismillah-svg">
+        <h2 style="font-family: 'Cinzel Decorative'; color: var(--gold); margin-top: 20px;">Peumulia Jamee</h2>
         <button class="btn-gold" onclick="startApp()">BUKA UNDANGAN</button>
     </div>
 
-    <div class="parallax-bg"></div>
-    <div class="ornament-overlay"></div>
-
     <audio id="audio" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
     </audio>
     <div id="music-btn" onclick="toggleMusic()"><i class="fas fa-music"></i></div>
 
     <div id="main-content" style="display:none;">
+        <div class="ornament-overlay"></div>
         
         <section data-aos="fade-up">
-            <p style="letter-spacing: 5px;">MEUKAWEN ADAT</p>
+            <img src="https://i.ibb.co.com/90pG6Dw/IMG-20260119-233227.jpg" alt="Cut Amrina & Martunis" class="hero-img">
+            
+            <p style="letter-spacing: 3px;">WALIMATUL 'URS</p>
             <h1 class="mempelai-name">Cut Amrina & Martunis</h1>
             <div class="sastra-box">
                 "Haba lon puphon deungon bismillah,<br>
@@ -118,85 +125,43 @@
                 Ranup lam puan lon hidang gata,<br>
                 Tanda mulia bak kamo sydia."
             </div>
-            <p>23 Januari 2026</p>
+            <p style="font-size: 1.2rem; margin-top: 10px;">23 . 01 . 2026</p>
         </section>
 
-        <section data-aos="fade-right">
-            <h2 style="font-family: 'Cinzel Decorative'; color: var(--gold);">Dua Insan Satu Janji</h2>
+        <section id="event" data-aos="zoom-in">
             <div class="card">
-                <h3>Cut Amrina Ismail Yusuf</h3>
-                <p>Putri dari Bpk. Ismail Yusuf & Ibu (Nama Ibu)</p>
-            </div>
-            <p style="font-size: 2rem; color: var(--gold);">&</p>
-            <div class="card" data-aos="fade-left">
-                <h3>Martunis Ben Marzuki</h3>
-                <p>Putra dari Bpk. Marzuki & Ibu (Nama Ibu)</p>
-            </div>
-        </section>
-
-        <section id="event">
-            <div class="card" style="max-width: 600px;">
-                <i class="fas fa-calendar-alt fa-3x" style="color: var(--gold);"></i>
-                <h2 style="margin: 20px 0;">Jumat, 23 Januari 2026</h2>
-                <p>Akad Nikah: 09:00 WIB</p>
-                <p>Resepsi: 11:00 WIB - Selesai</p>
-                <hr style="margin: 20px 0; border: 0.5px solid var(--soft-gold);">
-                <p><i class="fas fa-map-marker-alt"></i> Gampong Alue Papeun, Kec. Nisam Antara, Aceh Utara</p>
-                <a href="https://www.google.com/maps/search/Alue+Papeun+Nisam+Antara" target="_blank" class="btn-gold">LIHAT GOOGLE MAPS</a>
+                <h2 style="font-family: 'Cinzel Decorative'; color: var(--gold);">Lokasi Acara</h2>
+                <p style="margin: 15px 0;"><strong>Gampong Alue Papeun</strong><br>Kec. Nisam Antara, Kab. Aceh Utara</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-gold">PETUNJUK LOKASI</a>
             </div>
         </section>
 
         <section>
-            <h2 style="font-family: 'Cinzel Decorative'; color: var(--gold);">Pre-Wedding Moments</h2>
-            <div class="gallery">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=400" alt="Gallery 1">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=400" alt="Gallery 2">
-                <img src="https://images.unsplash.com/photo-1519225495045-3dad89c56f5d?q=80&w=400" alt="Gallery 3">
-                <img src="https://images.unsplash.com/photo-1465495910483-0d6745756316?q=80&w=400" alt="Gallery 4">
+            <div class="sastra-box" style="border: none; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);">
+                "Terima kasih atas kehadiran dan doa restu Bapak/Ibu/Saudara/i."
             </div>
+            <p style="margin-top: 20px;">Wassalam,</p>
+            <h3 style="font-family: 'Great Vibes'; font-size: 2rem; color: var(--gold);">Cut Amrina & Martunis</h3>
         </section>
-
-        <section data-aos="zoom-in">
-            <div class="sastra-box">
-                "Beu meusampe niat bak uroe nyoe,<br>
-                Beu geubri nuroe nibak Rabbana.<br>
-                Ma'ah lon lakee jamee mulia,<br>
-                Doa restu gata nyang kamo pinta."
-            </div>
-            <p>Terima Kasih</p>
-            <h2 style="font-family: 'Great Vibes'; font-size: 2.5rem; color: var(--gold);">Cut Amrina & Martunis</h2>
-        </section>
-
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 1000 });
 
         function startApp() {
-            const loader = document.getElementById('loader');
-            const content = document.getElementById('main-content');
-            const audio = document.getElementById('audio');
-
-            loader.style.opacity = '0';
+            document.getElementById('loader').style.opacity = '0';
+            document.getElementById('audio').play();
             setTimeout(() => {
-                loader.style.display = 'none';
-                content.style.display = 'block';
-                audio.play();
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
                 AOS.refresh();
             }, 1000);
         }
 
         function toggleMusic() {
             const audio = document.getElementById('audio');
-            const btn = document.getElementById('music-btn');
-            if (audio.paused) {
-                audio.play();
-                btn.innerHTML = '<i class="fas fa-music"></i>';
-            } else {
-                audio.pause();
-                btn.innerHTML = '<i class="fas fa-pause"></i>';
-            }
+            audio.paused ? audio.play() : audio.pause();
         }
     </script>
 </body>
