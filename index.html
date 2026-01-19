@@ -5,164 +5,223 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Undangan Pernikahan: Cut Amrina & Martunis</title>
-    <meta name="title" content="Undangan Pernikahan: Cut Amrina & Martunis">
-    <meta name="description" content="Peumulia Jamee - Kami mengundang Anda untuk menghadiri pernikahan Cut Amrina Ismail Yusuf & Martunis Ben Marzuki pada 23 Januari 2026.">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourlink.github.io/"> <meta property="og:title" content="Undangan Pernikahan: Cut Amrina & Martunis">
-    <meta property="og:description" content="Peumulia Jamee - Gampong Alue Papeun, Aceh Utara.">
+    <meta name="description" content="Peumulia Jamee - Kami mengundang Anda di hari bahagia Cut Amrina Ismail Yusuf & Martunis Ben Marzuki.">
+    <meta property="og:title" content="The Wedding of Cut Amrina & Martunis">
+    <meta property="og:description" content="Jumat, 23 Januari 2026 - Gampong Alue Papeun, Aceh Utara.">
     <meta property="og:image" content="https://i.ibb.co.com/90pG6Dw/IMG-20260119-233227.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Undangan Pernikahan: Cut Amrina & Martunis">
-    <meta property="twitter:description" content="Peumulia Jamee - Gampong Alue Papeun, Aceh Utara.">
-    <meta property="twitter:image" content="https://i.ibb.co.com/90pG6Dw/IMG-20260119-233227.jpg">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:italic,wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
             --gold: #D4AF37;
-            --dark-aceh: #0f0f0f;
+            --deep-black: #0a0a0a;
             --soft-gold: rgba(212, 175, 55, 0.2);
-            --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background-color: var(--dark-aceh); 
-            color: var(--white); 
+        body, html { 
+            background-color: var(--deep-black); 
+            color: white; 
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Intro Bismillah */
-        #loader {
+        /* 1. Intro Bismillah */
+        #intro-overlay {
             position: fixed; inset: 0;
             background: radial-gradient(circle, #222 0%, #000 100%);
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            z-index: 9999; transition: 1.5s ease-in-out;
+            z-index: 9999; transition: opacity 1.5s ease;
         }
-        .bismillah-svg {
-            width: 300px; filter: drop-shadow(0 0 15px var(--gold));
-            animation: breathe 4s infinite;
-        }
-        @keyframes breathe { 0%, 100% { opacity: 0.5; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1); } }
 
-        /* Background Motif */
-        .ornament-overlay {
+        .bismillah-frame {
+            width: 280px; opacity: 0;
+            transform: translateY(20px);
+            animation: bismillahFadeIn 2.5s forwards ease-in-out;
+            filter: drop-shadow(0 0 10px var(--gold));
+        }
+
+        @keyframes bismillahFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 2. Parallax Ornaments */
+        .ornament-bg {
             position: fixed; inset: 0;
-            background: url('https://www.transparenttextures.com/patterns/mandala.png');
+            background: url('https://www.transparenttextures.com/patterns/mandala.png') repeat;
             opacity: 0.1; z-index: -1; pointer-events: none;
         }
 
-        /* Sections */
-        section { min-height: 100vh; padding: 80px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        .mempelai-name { font-family: 'Great Vibes', cursive; font-size: clamp(3.2rem, 10vw, 5rem); color: var(--gold); margin: 20px 0; }
-        
-        .sastra-box {
-            border-left: 3px solid var(--gold); border-right: 3px solid var(--gold);
-            background: rgba(212, 175, 55, 0.05);
-            padding: 30px; border-radius: 20px; max-width: 600px;
-            margin: 20px auto; font-style: italic; line-height: 1.8;
+        /* 3. Hero Content */
+        section {
+            min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 80px 20px; text-align: center;
         }
 
         .hero-img {
-            width: 250px; height: 250px; border-radius: 50%;
-            border: 5px solid var(--gold); object-fit: cover;
-            margin-bottom: 20px; box-shadow: 0 0 20px var(--soft-gold);
+            width: 200px; height: 200px; border-radius: 50%;
+            border: 4px solid var(--gold); object-fit: cover;
+            margin-bottom: 30px; box-shadow: 0 0 30px var(--soft-gold);
         }
 
-        .card {
-            background: rgba(255,255,255,0.05); border: 1px solid var(--soft-gold);
-            backdrop-filter: blur(10px); padding: 30px; border-radius: 15px;
-            width: 100%; max-width: 450px; margin: 15px;
+        .mempelai-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 5rem);
+            color: var(--gold);
+            margin: 10px 0;
         }
 
-        #music-btn {
-            position: fixed; bottom: 20px; right: 20px;
-            background: var(--gold); color: black; border-radius: 50%;
-            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; z-index: 1000;
+        .sastra-aceh {
+            font-family: 'Playfair Display', serif;
+            font-style: italic; font-size: 1.1rem;
+            line-height: 1.8; color: #f0f0f0;
+            max-width: 650px; margin: 25px auto;
+            padding: 20px; border-left: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
         }
 
-        .btn-gold {
-            background: var(--gold); color: black; padding: 12px 30px;
-            text-decoration: none; border-radius: 50px; font-weight: bold;
-            display: inline-block; margin-top: 20px; transition: 0.3s;
+        /* 4. Countdown */
+        .countdown { display: flex; gap: 12px; margin: 30px 0; }
+        .time-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            padding: 12px; min-width: 70px; border-radius: 10px;
         }
+        .time-box span { display: block; font-size: 1.4rem; font-weight: bold; color: var(--gold); }
+
+        .btn-open {
+            background: var(--gold); color: black; border: none;
+            padding: 15px 35px; border-radius: 50px; font-weight: bold;
+            cursor: pointer; transition: 0.4s; letter-spacing: 2px;
+            margin-top: 30px;
+        }
+
+        #music-control {
+            position: fixed; bottom: 25px; right: 25px;
+            background: var(--gold); color: black; width: 45px; height: 45px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            z-index: 1000; cursor: pointer; box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .rotate-music { animation: rotation 3s infinite linear; }
+        @keyframes rotation { from { transform: rotate(0deg); } to { transform: rotate(359deg); } }
     </style>
 </head>
 <body>
 
-    <div id="loader">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Bismillah.svg/1200px-Bismillah.svg.png" class="bismillah-svg">
-        <h2 style="font-family: 'Cinzel Decorative'; color: var(--gold); margin-top: 20px;">Peumulia Jamee</h2>
-        <button class="btn-gold" onclick="startApp()">BUKA UNDANGAN</button>
+    <div id="intro-overlay">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Bismillah.svg/1200px-Bismillah.svg.png" 
+             class="bismillah-frame" alt="Bismillah">
+        <div style="margin-top: 20px; text-align: center;">
+            <h2 style="font-family: 'Cinzel Decorative'; color: var(--gold); margin-bottom: 5px;">Peumulia Jamee</h2>
+            <p style="font-size: 0.7rem; letter-spacing: 3px;">CUT AMRINA & MARTUNIS</p>
+            <button class="btn-open" onclick="unlockInvitation()">BUKA UNDANGAN</button>
+        </div>
     </div>
 
-    <audio id="audio" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+    <audio id="mainMusic" loop>
+        <source src="https://cdn.pixabay.com/audio/2022/10/14/audio_9033f6789e.mp3" type="audio/mpeg">
     </audio>
-    <div id="music-btn" onclick="toggleMusic()"><i class="fas fa-music"></i></div>
+    <div id="music-control" onclick="togglePlay()"><i id="music-icon" class="fas fa-music"></i></div>
 
-    <div id="main-content" style="display:none;">
-        <div class="ornament-overlay"></div>
+    <div class="ornament-bg"></div>
+
+    <div id="main-content" style="display: none;">
         
-        <section data-aos="fade-up">
-            <img src="https://i.ibb.co.com/90pG6Dw/IMG-20260119-233227.jpg" alt="Cut Amrina & Martunis" class="hero-img">
+        <section>
+            <img src="https://i.ibb.co.com/90pG6Dw/IMG-20260119-233227.jpg" class="hero-img animate__animated animate__zoomIn">
+            <p class="animate__animated animate__fadeIn">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
             
-            <p style="letter-spacing: 3px;">WALIMATUL 'URS</p>
-            <h1 class="mempelai-name">Cut Amrina & Martunis</h1>
-            <div class="sastra-box">
+            <div class="sastra-aceh">
                 "Haba lon puphon deungon bismillah,<br>
                 Lon seumuah jamee ban sigom donya.<br>
                 Ranup lam puan lon hidang gata,<br>
                 Tanda mulia bak kamo sydia."
             </div>
-            <p style="font-size: 1.2rem; margin-top: 10px;">23 . 01 . 2026</p>
+
+            <h1 class="mempelai-name">Cut Amrina Ismail Yusuf</h1>
+            <p style="font-weight: bold; color: var(--gold);">DENGAN</p>
+            <h1 class="mempelai-name">Martunis Ben Marzuki</h1>
+
+            <div class="countdown" id="timer">
+                <div class="time-box"><span id="days">00</span><label>Hari</label></div>
+                <div class="time-box"><span id="hours">00</span><label>Jam</label></div>
+                <div class="time-box"><span id="mins">00</span><label>Menit</label></div>
+                <div class="time-box"><span id="secs">00</span><label>Detik</label></div>
+            </div>
         </section>
 
-        <section id="event" data-aos="zoom-in">
-            <div class="card">
-                <h2 style="font-family: 'Cinzel Decorative'; color: var(--gold);">Lokasi Acara</h2>
-                <p style="margin: 15px 0;"><strong>Gampong Alue Papeun</strong><br>Kec. Nisam Antara, Kab. Aceh Utara</p>
-                <a href="https://maps.google.com" target="_blank" class="btn-gold">PETUNJUK LOKASI</a>
+        <section style="background: rgba(255,255,255,0.02);">
+            <div style="max-width: 600px; padding: 20px;">
+                <h2 style="font-family: 'Cinzel Decorative'; color: var(--gold);">Waktu & Lokasi</h2>
+                <div style="margin: 30px 0; padding: 30px; border: 1px solid var(--soft-gold); border-radius: 15px;">
+                    <p style="font-size: 1.2rem; font-weight: 600;">Jumat, 23 Januari 2026</p>
+                    <p style="margin-top: 10px;">Gampong Alue Papeun, Kec. Nisam Antara,<br>Kab. Aceh Utara</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-open" style="font-size: 0.8rem; padding: 10px 25px;">PETUNJUK LOKASI</a>
+                </div>
             </div>
         </section>
 
         <section>
-            <div class="sastra-box" style="border: none; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);">
-                "Terima kasih atas kehadiran dan doa restu Bapak/Ibu/Saudara/i."
+            <div class="sastra-aceh" style="border: none; border-top: 1px solid var(--gold);">
+                "Meunyo na salah bak kamo jinoe,<br>
+                Ma'ah lon lakee jamee mulia.<br>
+                Teurimong gaseh ateueh langkah gata."
             </div>
-            <p style="margin-top: 20px;">Wassalam,</p>
-            <h3 style="font-family: 'Great Vibes'; font-size: 2rem; color: var(--gold);">Cut Amrina & Martunis</h3>
+            <p>Keluarga Besar</p>
+            <h2 style="font-family: 'Great Vibes'; color: var(--gold); font-size: 2rem;">Cut Amrina & Martunis</h2>
         </section>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
-        AOS.init({ duration: 1000 });
-
-        function startApp() {
-            document.getElementById('loader').style.opacity = '0';
-            document.getElementById('audio').play();
-            setTimeout(() => {
-                document.getElementById('loader').style.display = 'none';
-                document.getElementById('main-content').style.display = 'block';
-                AOS.refresh();
-            }, 1000);
+        function unlockInvitation() {
+            const music = document.getElementById('mainMusic');
+            music.play();
+            document.getElementById('music-control').classList.add('rotate-music');
+            
+            gsap.to("#intro-overlay", {
+                duration: 1.2,
+                opacity: 0,
+                onComplete: () => {
+                    document.getElementById('intro-overlay').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                    window.scrollTo(0,0);
+                }
+            });
         }
 
-        function toggleMusic() {
-            const audio = document.getElementById('audio');
-            audio.paused ? audio.play() : audio.pause();
+        function togglePlay() {
+            const m = document.getElementById('mainMusic');
+            const icon = document.getElementById('music-icon');
+            const ctrl = document.getElementById('music-control');
+            if (m.paused) {
+                m.play();
+                icon.className = "fas fa-music";
+                ctrl.classList.add('rotate-music');
+            } else {
+                m.pause();
+                icon.className = "fas fa-pause";
+                ctrl.classList.remove('rotate-music');
+            }
         }
+
+        const eventDate = new Date("Jan 23, 2026 09:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const d = eventDate - now;
+            if (d < 0) return;
+            document.getElementById('days').innerText = Math.floor(d / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('mins').innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('secs').innerText = Math.floor((d % (1000 * 60)) / 1000);
+        }, 1000);
     </script>
 </body>
 </html>
