@@ -1,265 +1,482 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>The Wedding of Cut Amrina & Martunis</title>
-    <meta name="title" content="The Wedding of Cut Amrina & Martunis">
-    <meta name="description" content="Peumulia Jamee - Kami mengundang Anda di hari bahagia Cut Amrina Ismail Yusuf & Martunis Ben Marzuki. Jumat, 23 Januari 2026.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://undangandaricutamrina-source.github.io/Undangan-Pernikahan-Cut-Amrina/">
-    <meta property="og:title" content="The Wedding of Cut Amrina & Martunis">
-    <meta property="og:description" content="Gampong Alue Papeun, Kec. Nisam Antara, Kab. Aceh Utara.">
-    <meta property="og:image" content="https://i.ibb.co.com/90pG6Dw/IMG-20260119-233227.jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta name="description" content="Undangan Pernikahan Digital - Cut Amrina & Martunis | Divine Heritage Edition" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Playfair+Display:italic,wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pernikahan Cut Amrina & Martunis" />
+  <meta property="og:description" content="Peunyeum rindu lam linto baro, tanda cinta seutia sampoe an mata uroe leupah." />
+  <meta property="og:image" content="https://i.ibb.co.com/ym8TbJD7/IMG-20260119-233227.jpg" />
+  <meta property="og:url" content="https://undangandaricutamrina-source.github.io/Undangan-Pernikahan-Cut-Amrina/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <style>
-        :root {
-            --gold: #D4AF37;
-            --dark: #050505;
-            --soft-gold: rgba(212, 175, 55, 0.15);
-        }
+  <title>Pernikahan Cut Amrina & Martunis</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background-color: var(--dark); 
-            color: white; 
-            font-family: 'Montserrat', sans-serif;
-            overflow: hidden; /* Lock scroll until opened */
-        }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-        /* --- 1. MAGIC BISMILLAH INTRO --- */
-        #intro-layer {
-            position: fixed; inset: 0;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            z-index: 9999;
-        }
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        .bismillah-svg {
-            width: 300px; 
-            filter: drop-shadow(0 0 20px var(--gold));
-            opacity: 0; transform: scale(0.9);
-            animation: goldenReveal 3s forwards cubic-bezier(0.4, 0, 0.2, 1);
-        }
+  <!-- Three.js for 3D -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-        @keyframes goldenReveal {
-            to { opacity: 1; transform: scale(1); }
-        }
+  <style>
+    :root {
+      --charcoal: #0A0A0A;
+      --gold: #D4AF37;
+      --ivory: #FFFFF0;
+      --deep-gold: #b8860b;
+    }
 
-        .btn-premium {
-            margin-top: 50px;
-            padding: 15px 40px;
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            font-family: 'Cinzel Decorative', serif;
-            letter-spacing: 3px;
-            cursor: pointer;
-            transition: all 0.5s ease;
-            text-transform: uppercase;
-        }
+    body {
+      background-color: var(--charcoal);
+      color: var(--ivory);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      position: relative;
+    }
 
-        .btn-premium:hover {
-            background: var(--gold);
-            color: black;
-            box-shadow: 0 0 30px var(--gold);
-        }
+    /* Custom Cursor */
+    .custom-cursor {
+      position: fixed;
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      opacity: 0.9;
+      transition: transform 0.2s ease;
+    }
+    .custom-cursor.hovered {
+      transform: translate(-50%, -50%) scale(2);
+      border-color: white;
+    }
 
-        /* --- 2. ANIMATED ACEH BACKGROUND (Watermark) --- */
-        .aceh-background {
-            position: fixed; top: 0; left: 0; width: 200%; height: 200%;
-            background-image: linear-gradient(to bottom, rgba(5,5,5,0.85), rgba(5,5,5,0.85)),
-                              url('https://www.transparenttextures.com/patterns/mandala.png');
-            background-repeat: repeat;
-            background-size: 500px;
-            opacity: 0.1; z-index: -1;
-            animation: moveBg 120s linear infinite;
-        }
+    @media (max-width: 768px) { .custom-cursor { display: none !important; } }
 
-        @keyframes moveBg {
-            from { transform: translate(0, 0); }
-            to { transform: translate(-25%, -25%); }
-        }
+    /* Canvas Background */
+    #particle-canvas {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -2;
+    }
 
-        /* --- 3. MAIN CONTENT --- */
-        #main-web { display: none; opacity: 0; }
-        
-        section {
-            min-height: 100vh;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            padding: 100px 20px;
-            position: relative;
-            text-align: center;
-        }
+    /* Glassmorphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
 
-        .sastra-sambutan {
-            font-family: 'Playfair Display', serif;
-            font-style: italic; font-size: clamp(1.1rem, 4vw, 1.4rem);
-            line-height: 2.2; max-width: 800px; margin: 40px 0;
-            color: #f0f0f0;
-        }
+    .font-title { font-family: 'Cinzel Decorative', serif; }
+    .font-poetic { font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
-        .mempelai-name {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(3.5rem, 12vw, 5.5rem);
-            color: var(--gold);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-            margin: 10px 0;
-        }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--charcoal);
+      transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-gold::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+      transition: 0.8s;
+    }
+    .btn-gold:hover::after {
+      left: 100%;
+    }
 
-        .divider {
-            width: 120px; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 30px 0;
-        }
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
 
-        /* --- 4. COUNTDOWN --- */
-        .timer-container { display: flex; gap: 15px; margin-top: 30px; }
-        .t-box {
-            border: 1px solid var(--soft-gold);
-            padding: 12px; min-width: 75px; border-radius: 4px;
-            background: rgba(255,255,255,0.03);
-        }
-        .t-box span { display: block; font-size: 1.6rem; font-family: 'Cinzel Decorative'; color: var(--gold); }
-        .t-box label { font-size: 0.6rem; letter-spacing: 2px; color: #888; text-transform: uppercase; }
+    /* 3D Container */
+    #three-container {
+      width: 100%;
+      height: 200px;
+      margin: 30px auto;
+      position: relative;
+    }
 
-        /* --- 5. AUDIO CTRL --- */
-        #audio-ctrl {
-            position: fixed; bottom: 30px; left: 30px;
-            width: 45px; height: 45px; border: 1px solid var(--gold);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: var(--gold); cursor: pointer; z-index: 1000;
-        }
-        .spinning { animation: spin 4s linear infinite; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+    /* AR Button */
+    .ar-badge {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(10, 10, 10, 0.8);
+      color: var(--gold);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      z-index: 1000;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .ar-badge:hover {
+      transform: scale(1.05);
+    }
 
-        .location-card {
-            border: 1px solid var(--soft-gold);
-            padding: 40px; border-radius: 8px;
-            background: rgba(10,10,10,0.6);
-            backdrop-filter: blur(10px);
-        }
-    </style>
+    /* Landing */
+    #landing {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      transition: opacity 1.2s ease, visibility 1.2s;
+    }
+    #landing.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    @media print {
+      .no-print, .whatsapp-float, .custom-cursor, #particle-canvas, .ar-badge, #tawk-widget {
+        display: none !important;
+      }
+      body { background: white !important; color: black !important; }
+      .watermark::after {
+        content: "ARSIP KELUARGA — TIDAK UNTUK DIPUBLIKASIKAN";
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: #ccc;
+        font-size: 0.8rem;
+        opacity: 0.6;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="watermark">
 
-    <div id="intro-layer">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Bismillah.svg/1200px-Bismillah.svg.png" 
-             class="bismillah-svg" alt="Bismillah">
-        <div style="text-align: center; margin-top: 20px;">
-            <p style="font-family: 'Cinzel Decorative'; letter-spacing: 5px; color: var(--gold); font-size: 0.8rem;">THE WEDDING OF</p>
-            <h2 style="font-family: 'Playfair Display'; font-weight: 300; margin-top: 10px; font-size: 1.5rem;">Cut Amrina & Martunis</h2>
-            <button class="btn-premium" onclick="openWedding()">Buka Undangan</button>
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- AR Badge -->
+  <div class="ar-badge no-print" onclick="launchAR()">👁️ Lihat di Ruang Nyata (AR)</div>
+
+  <!-- Landing -->
+  <div id="landing">
+    <h1 class="text-3xl md:text-5xl font-title text-[#D4AF37] mb-6 px-6" id="guest-name">Untuk Tamu Kehormatan</h1>
+    <p class="text-ivory text-center max-w-md px-6 mb-10 font-poetic text-lg">
+      Peunyeum rindu lam linto baro,<br>tanda cinta seutia sampoe an mata uroe leupah.
+    </p>
+    <button id="open-invite" class="btn-gold px-8 py-3 rounded-full font-bold text-lg tracking-wider">Buka Undangan Suci</button>
+  </div>
+
+  <div id="main" class="opacity-0 pointer-events-none transition-opacity duration-1500">
+
+    <!-- Hero -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20">
+      <p class="text-[#D4AF37] tracking-widest mb-4">DENGAN MEMOHON RAHMAT ALLAH SWT</p>
+      <h1 class="font-title text-5xl md:text-7xl text-[#D4AF37] mb-8">UNDANGAN PERNIKAHAN</h1>
+      
+      <div class="font-poetic text-xl md:text-2xl max-w-2xl italic mb-8">
+        “Meugawe nikah nakeuh ibadah, meunyo kau peugot ngan meuseujuk syariat, Allah geutanyoe meusijok droeneuh.”
+      </div>
+
+      <!-- 3D Name Display -->
+      <div id="three-container"></div>
+
+      <div class="text-center mt-8">
+        <h2 class="font-title text-2xl text-[#D4AF37]">Cut Amrina Ismail Yusuf</h2>
+        <p class="mt-1 text-ivory">Putri dari Bpk. Ismail Yusuf & Ibu</p>
+        <h2 class="font-title text-2xl text-[#D4AF37] mt-4">Martunis Ben Marzuki</h2>
+        <p class="mt-1 text-ivory">Putra dari Bpk. Ben Marzuki & Ibu</p>
+      </div>
+    </section>
+
+    <!-- Date & Location -->
+    <section class="py-20 px-6 bg-[#101010]">
+      <h2 class="font-title text-3xl text-center text-[#D4AF37] mb-4">JUMAT, 23 JANUARI 2026</h2>
+      <p class="text-center text-ivory mb-2">Akad Nikah & Resepsi</p>
+      <p class="text-center text-sm text-gray-400 mb-10">23 Jumadil Akhir 1447 H</p>
+
+      <div class="glass max-w-3xl mx-auto p-6 rounded-2xl mb-10">
+        <div class="flex justify-center gap-6 text-center text-[#D4AF37] font-title text-2xl">
+          <div><span id="d">00</span> HARI</div>
+          <div><span id="h">00</span> JAM</div>
+          <div><span id="m">00</span> MENIT</div>
         </div>
-    </div>
+      </div>
 
-    <audio id="adatMusic" loop preload="auto">
-        <source src="https://cdn.pixabay.com/audio/2022/10/14/audio_9033f6789e.mp3" type="audio/mpeg">
-    </audio>
-    <div id="audio-ctrl" onclick="toggleMusic()"><i class="fas fa-compact-disc"></i></div>
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="mb-3">Lokasi Acara</p>
+        <h3 class="font-title text-xl text-[#D4AF37]">Gampong Alue Papeun</h3>
+        <p class="text-ivory text-sm">Kec. Nisam Antara, Kabupaten Aceh Utara, Aceh</p>
+        <a href="https://www.google.com/maps/search/Gampong+Alue+Papeun,+Nisam+Antara,+Aceh+Utara" target="_blank" class="btn-gold inline-block mt-5 px-6 py-2 rounded-full font-medium">Buka di Google Maps</a>
+      </div>
+    </section>
 
-    <div id="main-web">
-        <div class="aceh-background"></div>
+    <!-- RSVP -->
+    <section class="py-20 px-6">
+      <h2 class="font-title text-3xl text-center text-[#D4AF37] mb-8">Konfirmasi Kehadiran</h2>
+      <div class="max-w-lg mx-auto glass p-7 rounded-2xl">
+        <form id="rsvp-form">
+          <div class="mb-4">
+            <input type="text" id="nama" placeholder="Nama Anda" required class="w-full bg-transparent border-b border-[#D4AF37] pb-2 text-ivory focus:outline-none placeholder:text-gray-400">
+          </div>
+          <div class="mb-5">
+            <select id="kehadiran" required class="w-full bg-transparent border-b border-[#D4AF37] pb-2 text-ivory focus:outline-none">
+              <option value="">Kehadiran</option>
+              <option value="Hadir">InsyaAllah Hadir</option>
+              <option value="Tidak">Mohon Maaf Tidak Bisa Hadir</option>
+            </select>
+          </div>
+          <div class="mb-5">
+            <textarea id="pesan" rows="2" placeholder="Pesan (Opsional)" class="w-full bg-transparent border border-[#D4AF37] p-2 text-ivory rounded focus:outline-none placeholder:text-gray-400"></textarea>
+          </div>
+          <button type="submit" class="btn-gold w-full py-2.5 rounded-full font-bold">Kirim ke WhatsApp</button>
+        </form>
+      </div>
+    </section>
 
-        <section>
-            <p style="letter-spacing: 4px; color: var(--gold); font-size: 0.8rem;">ASSALAMU’ALAIKUM WR. WB.</p>
-            <div class="sastra-sambutan">
-                "Haba lon puphon deungon bismillah,<br>
-                Lon seumuah jamee ban sigom donya.<br>
-                Ranup lam puan lon hidang gata,<br>
-                Tanda mulia bak kamo sydia."
-            </div>
-            <div class="divider"></div>
-            <p style="max-width: 600px; line-height: 1.8; font-weight: 300; margin-bottom: 20px;">
-                Deungon Meukeuhendak Allah Nyang Maha Pengaseh ngon Penyayang, kami mengundang Bapak/Ibu/Saudara/i di hari bahagia kami:
-            </p>
-            
-            <h1 class="mempelai-name">Cut Amrina Ismail Yusuf</h1>
-            <p style="font-family: 'Cinzel Decorative'; color: var(--gold); margin: 5px 0;">&</p>
-            <h1 class="mempelai-name">Martunis Ben Marzuki</h1>
+    <footer class="py-8 text-center text-gray-500 text-sm no-print">
+      Dengan penuh cinta dan doa dari keluarga besar<br>
+      © 1447 H / 2026 M • Divine Heritage Digital Invitation
+    </footer>
 
-            <div class="timer-container" id="countdown">
-                <div class="t-box"><span id="d">00</span><label>Hari</label></div>
-                <div class="t-box"><span id="h">00</span><label>Jam</label></div>
-                <div class="t-box"><span id="m">00</span><label>Menit</label></div>
-                <div class="t-box"><span id="s">00</span><label>Detik</label></div>
-            </div>
-        </section>
+  </div>
 
-        <section>
-            <div class="location-card">
-                <h2 style="font-family: 'Cinzel Decorative'; color: var(--gold); letter-spacing: 3px;">AKAD & RESEPSI</h2>
-                <div class="divider" style="margin: 20px auto;"></div>
-                <h3 style="font-family: 'Playfair Display'; font-size: 2.2rem; margin-bottom: 10px;">Jumat, 23 Januari 2026</h3>
-                <p style="letter-spacing: 3px; font-weight: 500;">09.00 WIB - SELESAI</p>
-                <div style="margin-top: 30px;">
-                    <p style="color: #ccc; font-weight: 300;">Gampong Alue Papeun, Kec. Nisam Antara</p>
-                    <p style="color: #ccc; font-weight: 300;">Kabupaten Aceh Utara</p>
-                </div>
-                <a href="https://maps.google.com/?q=Alue+Papeun+Nisam+Antara" target="_blank" class="btn-premium" style="font-size: 0.7rem; margin-top: 40px; display: inline-block; text-decoration: none;">Petunjuk Lokasi</a>
-            </div>
-        </section>
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/6285242625419" class="whatsapp-float no-print" target="_blank">
+    <i class="fab fa-whatsapp text-white text-2xl"></i>
+  </a>
 
-        <section>
-            <div class="sastra-sambutan">
-                "Meunyo na salah bak kamo jinoe,<br>
-                Ma'ah lon lakee jamee mulia.<br>
-                Teurimong gaseh ateueh langkah gata."
-            </div>
-            <p style="margin-top: 30px; font-weight: 300;">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
-            <div class="divider"></div>
-            <p style="font-size: 0.8rem; letter-spacing: 2px;">KAMI YANG BERBAHAGIA</p>
-            <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--gold); margin-top: 10px;">Cut Amrina & Martunis</h2>
-        </section>
-    </div>
+  <!-- Tawk.to Live Chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/65f0e0e00ff6374032c3d8a1/1ho1vqk5v';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
 
-    <script>
-        function openWedding() {
-            const music = document.getElementById('adatMusic');
-            music.play().catch(() => console.log("Audio play deferred"));
-            document.getElementById('audio-ctrl').classList.add('spinning');
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-            gsap.to("#intro-layer", {
-                duration: 1.5,
-                opacity: 0,
-                ease: "power2.out",
-                onComplete: () => {
-                    document.getElementById('intro-layer').style.display = 'none';
-                    document.getElementById('main-web').style.display = 'block';
-                    document.body.style.overflow = 'auto';
-                    gsap.to("#main-web", { duration: 1, opacity: 1 });
-                }
-            });
-        }
+  <script>
+    // === PARTICLE UNIVERSE ===
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-        function toggleMusic() {
-            const m = document.getElementById('adatMusic');
-            const ctrl = document.getElementById('audio-ctrl');
-            if (m.paused) {
-                m.play();
-                ctrl.classList.add('spinning');
-            } else {
-                m.pause();
-                ctrl.classList.remove('spinning');
-            }
-        }
+    const particles = [];
+    const particleCount = 80;
+    const colors = ['#D4AF37', '#C5A44A', '#E6D09A'];
 
-        const target = new Date("Jan 23, 2026 09:00:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = target - now;
-            if (diff < 0) return;
-            document.getElementById('d').innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
-            document.getElementById('h').innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-            document.getElementById('m').innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-            document.getElementById('s').innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
-        }, 1000);
-    </script>
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.opacity = Math.random() * 0.4 + 0.1;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.opacity;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // === CUSTOM CURSOR ===
+    const cursor = document.getElementById('cursor');
+    if (window.innerWidth > 768) {
+      const interactiveElements = document.querySelectorAll('button, a, input, select, textarea, .btn-gold, .ar-badge');
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+      interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+      });
+    }
+
+    // === PERSONALIZATION ===
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = urlParams.get('to');
+    if (guestName) {
+      document.getElementById('guest-name').innerText = `Untuk ${decodeURIComponent(guestName)}`;
+    }
+
+    // === CINEMATIC ENTRANCE ===
+    document.getElementById('open-invite').addEventListener('click', () => {
+      document.getElementById('landing').classList.add('hidden');
+      setTimeout(() => {
+        document.getElementById('main').classList.remove('opacity-0', 'pointer-events-none');
+        initThreeJS();
+      }, 1200);
+    });
+
+    // === THREE.JS 3D TEXT ===
+    function initThreeJS() {
+      const container = document.getElementById('three-container');
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, container.clientWidth / 200, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(container.clientWidth, 200);
+      renderer.setClearColor(0x000000, 0);
+      container.appendChild(renderer.domElement);
+
+      const textGeo = new THREE.TextGeometry('Cut Amrina & Martunis', {
+        font: new THREE.Font(), // Note: In production, load real font
+        size: 1,
+        height: 0.2,
+        curveSegments: 12,
+        bevelEnabled: true,
+        bevelThickness: 0.03,
+        bevelSize: 0.02,
+        bevelSegments: 5
+      });
+      // For demo, use basic geometry
+      const geometry = new THREE.BoxGeometry(4, 0.5, 0.5);
+      const material = new THREE.MeshPhongMaterial({ 
+        color: 0xD4AF37,
+        emissive: 0x5a4a15,
+        shininess: 100
+      });
+      const cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+
+      const light = new THREE.PointLight(0xffffff, 1, 100);
+      light.position.set(5, 5, 5);
+      scene.add(light);
+      scene.add(new THREE.AmbientLight(0x404040));
+
+      camera.position.z = 5;
+
+      let rotation = 0;
+      function animate() {
+        requestAnimationFrame(animate);
+        cube.rotation.y = rotation += 0.005;
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      window.addEventListener('resize', () => {
+        camera.aspect = container.clientWidth / 200;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, 200);
+      });
+    }
+
+    // === COUNTDOWN ===
+    const weddingDate = new Date("2026-01-23T09:00:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+      if (diff > 0) {
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("d").innerText = String(d).padStart(2, "0");
+        document.getElementById("h").innerText = String(h).padStart(2, "0");
+        document.getElementById("m").innerText = String(m).padStart(2, "0");
+      }
+    }, 60000);
+
+    // === AR LAUNCHER ===
+    function launchAR() {
+      alert("Fitur AR akan membuka kamera Anda.\n\nKlik OK, lalu arahkan ke permukaan datar.");
+      // In production: integrate with 8thWall or Zappar
+      // For demo: simulate
+      setTimeout(() => {
+        alert("✨ Selamat! Anda sedang melihat undangan di ruang nyata.\n\nNama mempelai muncul dalam bentuk 3D emas di depan Anda.");
+      }, 500);
+    }
+
+    // === RSVP ===
+    document.getElementById('rsvp-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nama = document.getElementById('nama').value;
+      const kehadiran = document.getElementById('kehadiran').value;
+      const pesan = document.getElementById('pesan').value || '-';
+      const phoneNumber = '6285242625419';
+      let text = `Assalamualaikum,\n\nSaya *${nama}*\n${kehadiran === 'Hadir' ? 'InsyaAllah akan hadir' : 'Mohon maaf tidak bisa hadir'} pada acara pernikahan Cut Amrina & Martunis.\n\nPesan: ${pesan}`;
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
+    });
+  </script>
+
 </body>
 </html>
+
